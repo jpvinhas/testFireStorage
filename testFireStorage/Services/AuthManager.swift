@@ -20,6 +20,7 @@ class AuthManager: ObservableObject {
         Auth.auth().addStateDidChangeListener { _, user in
             self.isAuthenticated = user != nil
             self.userId = user?.uid
+            UserManager.shared.fetchUser()
         }
     }
     
